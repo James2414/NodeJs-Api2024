@@ -1,3 +1,4 @@
+//importamos las librerias
 const express = require ("express");
 const app = express();
 const morgan = require("morgan");
@@ -24,6 +25,7 @@ app.get("/api/students", (req, res)=>{
     res.send(students)
 });
 
+//Buscar estudiante por id.
 app.get("/api/students/:id", (req, res) =>{
     const student = students.find ( c => c.id === parseInt(req.params.id));
     if(!student) return res.status(400).send("estudiante no encontrado");
